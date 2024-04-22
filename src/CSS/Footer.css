@@ -1,0 +1,98 @@
+/* Footer Styles */
+.footer {
+  background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)); /* Gradient from black to a more transparent black */
+  color: #fff; /* White text color */
+  padding: 20px; /* Padding all around */
+  text-align: center; /* Center the text */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row; /* Align children horizontally */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: space-around; /* Distribute space around items */
+  align-items: flex-start; /* Align items to the start of the cross axis */
+  max-width: 1200px; /* Maximum width of the footer content */
+  margin: 0 auto; /* Center footer content */
+}
+
+.footer-section {
+  flex-basis: calc(33.333% - 20px); /* Allocate a third of the space minus margin */
+  margin: 10px; /* Margin around each section */
+  min-width: 200px; /* Minimum width for small screens */
+  padding: 0 10px; /* Padding inside each section */
+  box-sizing: border-box; /* Include padding and border in the element's width */
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* Ratio for 16:9 aspect */
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.footer-socials {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-socials a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus { /* Added focus for accessibility */
+  color: #ff6347;
+  transform: translateY(-3px);
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Ensure the footer stays at the bottom and doesn't overlap other elements */
+.footer {
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  /* Responsive adjustments for smaller screens */
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    flex-basis: auto; /* Allow each section to grow */
+    width: 90%; /* Set width for mobile layout */
+    text-align: center; /* Center content on smaller screens */
+  }
+
+  .map-container {
+    padding-bottom: 100%; /* Adjust aspect ratio for smaller screens */
+  }
+}

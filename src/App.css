@@ -1,0 +1,92 @@
+/* Navbar Styles */
+body {
+  background-color: #d2b48c56; /* This is a common light brown color */
+  margin: 0; /* Remove default margin */
+}
+.navbar {
+  background: linear-gradient(to right, #f5f5dc, #a0522d); /* Subtle gradient from light beige to a light brown */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 50px; /* Add padding to top to accommodate larger logo */
+  position: relative; /* Subtle shadow for depth */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around; /* Space items evenly */
+  align-items: center;
+  position: relative;
+}
+
+.nav-item {
+  padding: 1em; /* Spacing inside each nav item */
+}
+.nav-link {
+  text-decoration: none;
+  color: #333; /* Dark grey text */
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease; /* Add transform to the transition for effect */
+  display: inline-block; /* Allow transform */
+}
+
+.nav-link:hover {
+  color: #040404; /* Bootstrap primary color for link hover */
+  transform: translateY(-5px); /* Move the link up slightly on hover */
+}
+
+/* Logo Styles */
+.nav-logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%; /* Position the container's center vertically */
+  transform: translate(-50%, -50%); /* Center the logo horizontally and move it up 50% of its height */
+  z-index: 10; /* Ensure the logo sits above other elements */
+}
+
+
+.nav-logo-container:hover .nav-logo-image {
+  transform: scale(1.1); /* Scale the logo up a bit when hovered over */
+}
+
+.nav-logo-image {
+  height: 100px; /* Larger logo height */
+  width: 100px; /* Larger logo width */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+  border: 3px solid #fff; /* Optional: white border to blend with the navbar background */
+  transition: transform 0.3s ease; /* Smooth transition for scaling effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-list {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+    padding-top: 10px; /* Add padding at the top for some space */
+    padding-bottom: 10px; /* Add padding at the bottom for some space */
+  }
+
+  .nav-item {
+    width: 100%; /* Full width for easier tap targets */
+    padding: 10px 0; /* More vertical padding for tap targets */
+  }
+
+  .nav-link {
+    display: block; /* Make the link fill the container */
+    text-align: center; /* Center text for each nav item */
+    font-size: 16px; /* Ensure text size is legible */
+  }
+
+  .nav-logo-container {
+    order: -1; /* Place the logo at the top */
+    padding-bottom: 20px; /* Add some space below the logo */
+  }
+
+  .nav-logo-image {
+    height: 40px; /* Adjust logo size */
+    width: 40px; /* Adjust logo size */
+  }
+}

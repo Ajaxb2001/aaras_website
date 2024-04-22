@@ -1,0 +1,85 @@
+/* Recipe-CardCSS */
+.recipe-card {
+  background: #fff;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  /* Add a pseudo-element for the color gradient overlay */
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,165,0,0.3));
+    z-index: 0;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0; /* Start with no gradient overlay visible */
+  }
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px); /* Slight upward movement */
+  &:before {
+    opacity: 1;
+    animation: cardAnimation 1.5s infinite ease-in-out;
+    /* Show the gradient overlay on hover */
+  }
+}
+  
+  .recipe-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 20px; /* Match the card border-radius if any */
+  border-top-right-radius: 20px;
+  }
+  
+  .recipe-content {
+    padding: 25px;
+  }
+  
+  .recipe-title {
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+  }
+  
+  .recipe-description {
+    color: #666;
+    font-size: 1em;
+    margin: 10px 0;
+  }
+  
+  .recipe-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+      position: absolute; /* Position the link absolutely to stick at the bottom */
+  bottom: 10px; /* Distance from the bottom of the card */
+  left: 50%; /* Center the link horizontally */
+  transform: translateX(-50%);
+  }
+  
+  .recipe-link:hover {
+    background-color: #e5533b;
+  }
+  @keyframes cardAnimation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
