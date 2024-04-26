@@ -3,13 +3,22 @@ body {
   background-color: #d2b48c56; /* This is a common light brown color */
   margin: 0; /* Remove default margin */
 }
-.navbar {
-  background: linear-gradient(to right, #f5f5dc, #a0522d); /* Subtle gradient from light beige to a light brown */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding-top: 50px; /* Add padding to top to accommodate larger logo */
-  position: relative; /* Subtle shadow for depth */
-}
 
+.navbar {
+  background: linear-gradient(to right, #f5f5dc, #a0522d); /* Subtle gradient from light beige to light brown */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding-top: 50px; /* Add padding to top to accommodate larger logo */
+  position: sticky; /* Change to fixed to keep it above all content */
+  top: 0; /* Position at the very top of the page */
+  left: 0; /* Align to the left */
+  width: 100%; /* Ensure it stretches across the full width of the viewport */
+  z-index: 9999; /* High z-index to ensure it's above other content */
+}
+.navbar-transparent {
+  background: transparent !important; /* Important to override the linear gradient */
+  box-shadow: none; /* Remove the box shadow when transparent */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for background and shadow */
+}
 .nav-list {
   list-style: none;
   padding: 0;
@@ -52,8 +61,8 @@ body {
 }
 
 .nav-logo-image {
-  height: 100px; /* Larger logo height */
-  width: 100px; /* Larger logo width */
+  height: 120px; /* Larger logo height */
+  width: 120px; /* Larger logo width */
   border-radius: 50%; /* Circular shape */
   object-fit: cover; /* Ensures the image covers the area without stretching */
   border: 3px solid #fff; /* Optional: white border to blend with the navbar background */

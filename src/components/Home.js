@@ -13,7 +13,7 @@ const recipes = [
   {
     title: "Strawberry Ice Latte",
     description:
-      "Indulge in the refreshing fusion of creamy richness and fruity delight with our Strawberry Ice Latte. Crafted with care, each sip is a harmonious blend of smooth espresso, velvety milk, and the vibrant essence of ripe strawberries. Whether you're seeking a cool companion on a sunny day or a flavorful pick-me-up anytime, our Strawberry Ice Latte promises to awaken your senses and elevate your day. Treat yourself to a delightful escape with every sip.",
+      "Indulge in the refreshing fusion of creamy richness and fruity delight with our Strawberry Ice Latte. Crafted with care, each sip is a harmonious blend of smooth espresso, velvety milk, and the vibrant essence of ripe strawberries. Whether you're seeking a cool companion on a sunny day or a flavorful pick-me-up anytime.",
     image: strawberryIceLatte,
   },
   {
@@ -31,13 +31,13 @@ const recipes = [
   {
     title: "Chicken Biryani",
     description:
-      "A fragrant and flavorful dish, Chicken Biryani is a classic Indian delicacy. Tender chicken marinated in aromatic spices, layered with long-grain Basmati rice, and slow-cooked to perfection. Each bite offers a burst of savory spices and tender meat, making it a beloved dish for special occasions and everyday indulgence alike.",
+      "A fragrant and flavorful dish, Chicken Biryani is a classic Indian delicacy. Tender chicken marinated in aromatic spices, layered with long-grain Basmati rice, and slow-cooked to perfection.",
     image: cb,
   },
   {
     title: "Amritsari Chole Kulche",
     description:
-      "A quintessential Punjabi dish featuring spicy chickpeas (chole) cooked in a rich tomato-based gravy, served alongside soft, fluffy kulchas, a type of leavened Indian bread. This flavorful and hearty combination embodies the vibrant culinary heritage of Amritsar, Punjab, delivering a satisfying taste of North Indian cuisine.",
+      "A quintessential Punjabi dish featuring spicy chickpeas (chole) cooked in a rich tomato-based gravy, served alongside soft, fluffy kulchas, a type of leavened Indian bread. This flavorful and hearty combination embodies the vibrant culinary heritage of Amritsar, Punjab.",
     image: choleKulche,
   },
   {

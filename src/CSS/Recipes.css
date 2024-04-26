@@ -1,0 +1,27 @@
+/* Recipes.css */
+
+.recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.card {
+    width: 300px; /* Adjust the width as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-iframe {
+    width: 100%;
+    height: 300px; /* Adjust the height to maintain aspect ratio */
+}
+.video-description {
+    padding: 10px;
+    font-size: 16px; /* Adjust the font size as needed */
+  }
