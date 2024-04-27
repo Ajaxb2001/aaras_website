@@ -1,3 +1,5 @@
+// Contact.js
+
 import React, { useState } from "react";
 import "../CSS/contact.css"; // Ensure this path is correct
 
@@ -8,16 +10,24 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  // Form submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState(null);
 
   // Handle form field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmissionStatus(null);
     try {
       // Submit form data to the backend API
       const response = await fetch("/api/contact", {
@@ -27,25 +37,21 @@ const Contact = () => {
         },
         body: JSON.stringify(formData),
       });
-
-      // Check if the submission was successful
+      const data = await response.json();
       if (response.ok) {
-        // Reset form data after successful submission
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+        setSubmissionStatus("Message sent successfully!");
       } else {
-        // If the server response was not ok, inform the user
-        const errorData = await response.json();
-        alert(errorData.message || "There was an error submitting the form.");
+        setSubmissionStatus(
+          data.message || "There was an error submitting the form."
+        );
       }
     } catch (error) {
-      // Handle submission error
-      alert(error.message || "There was an error submitting the form.");
+      setSubmissionStatus(
+        error.message || "There was an error submitting the form."
+      );
     }
+    setIsSubmitting(false);
   };
 
   // JSX for the contact component
@@ -58,7 +64,7 @@ const Contact = () => {
       <div className="contact-content">
         <div className="contact-card">
           {/* Contact card content (e.g., address, phone number) */}
-          <h3>Contact Card</h3>
+          <h3>Contact Info</h3>
           <p>Company Name</p>
           <p>HBR Layout,</p>
           <p>Bangalore, Karnataka, 560043</p>
@@ -94,10 +100,17 @@ const Contact = () => {
               placeholder="Your Message"
               required
             />
-            <button type="submit" className="form-button">
-              Send Message
+            <button
+              type="submit"
+              className="form-button"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
+          {submissionStatus && (
+            <p className="form-status">{submissionStatus}</p>
+          )}
         </div>
       </div>
     </div>

@@ -1,44 +1,59 @@
-// Recipes.js
+import React, { useEffect } from "react";
+import "../CSS/Recipes.css";
+import instagramEmbedCodes from "./instagramEmbeddedCodes";
+// Function to load Instagram's embed script and reinitialize it
+const loadInstagramEmbedScript = () => {
+  const existingScript = document.getElementById("instagram-embed-script");
+  if (!existingScript) {
+    const script = document.createElement("script");
+    script.src = "//www.instagram.com/embed.js";
+    script.id = "instagram-embed-script";
+    script.async = true;
+    document.body.appendChild(script);
 
-import React from "react";
-import "../CSS/Recipes.css"; // Make sure to create a corresponding CSS file for styling
+    script.onload = () => {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+    };
+  } else {
+    if (window.instgrm) {
+      window.instgrm.Embeds.process();
+    }
+  }
+};
 
-// Dummy array of YouTube Shorts video IDs
-// Replace these with actual video IDs you want to display
-const videoIds = [
-  "https://youtube.com/shorts/bzYttrxG4eg?si=kmVNeEM3AZaD6mTj",
-  "video_id_2",
-  "video_id_3",
-  "video_id_3",
-  "video_id_3",
-  "video_id_3",
-  // ... more video IDs
+// Array of recipes with their details and Instagram embed code
+const recipes = [
+  {
+    title: "Refresh Nirvana🥤⛱️⛅",
+    instagramEmbedCode: instagramEmbedCodes.recipeTitle1,
+  },
+  {
+    title: "Tim Hortins ☕🍵",
+    instagramEmbedCode: instagramEmbedCodes.recipeTitle2,
+  },
+  // ... more recipe objects
 ];
-const videoDescriptions = [
-  "Description for video 1",
-  "Description for video 2",
-  "Description for video 3",
-  "Description for video 4",
-  "Description for video 5",
-  "Description for video 6",
 
-  // ... more descriptions
-];
 const Recipes = () => {
+  // Load Instagram embed script when the component mounts
+  useEffect(() => {
+    loadInstagramEmbedScript();
+  }, []);
+
   return (
-    <div className="recipes-container">
-      {videoIds.map((videoId, index) => (
-        <div key={videoId} className="card">
-          <iframe
-            title={`YouTube Short ${index + 1}`} // Unique title for each iframe
-            src={`https://www.youtube.com/embed/${videoId}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="video-iframe"
-          ></iframe>
-          <div className="video-description">
-            {videoDescriptions[index]} {/* Display the description text */}
+    <div className="recipes-gallery">
+      {recipes.map((recipe, index) => (
+        <div key={index} className="recipe-item">
+          {/* Instagram Reel Embed */}
+          <div
+            className="recipe-instagram"
+            dangerouslySetInnerHTML={{ __html: recipe.instagramEmbedCode }}
+          />
+          {/* Recipe Title */}
+          <div className="recipe-info">
+            <h3 className="recipe-name">{recipe.title}</h3>
           </div>
         </div>
       ))}

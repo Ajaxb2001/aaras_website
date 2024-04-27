@@ -4,6 +4,8 @@
   color: #fff; /* White text color */
   padding: 20px; /* Padding all around */
   text-align: center; /* Center the text */
+    position: relative;
+  z-index: 10;
 }
 
 .footer-content {
@@ -37,6 +39,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 20px;
 }
 
 .footer-socials {
@@ -75,8 +78,7 @@
 
 /* Ensure the footer stays at the bottom and doesn't overlap other elements */
 .footer {
-  position: relative;
-  z-index: 10;
+
 }
 
 @media (max-width: 768px) {
@@ -93,6 +95,7 @@
   }
 
   .map-container {
-    padding-bottom: 100%; /* Adjust aspect ratio for smaller screens */
+    padding-bottom: 100%;
+    border-radius: 50px; /* Adjust aspect ratio for smaller screens */
   }
 }
