@@ -1,59 +1,33 @@
-import React, { useEffect } from "react";
-import "../CSS/Recipes.css";
-import instagramEmbedCodes from "./instagramEmbeddedCodes";
-// Function to load Instagram's embed script and reinitialize it
-const loadInstagramEmbedScript = () => {
-  const existingScript = document.getElementById("instagram-embed-script");
-  if (!existingScript) {
-    const script = document.createElement("script");
-    script.src = "//www.instagram.com/embed.js";
-    script.id = "instagram-embed-script";
-    script.async = true;
-    document.body.appendChild(script);
+// Recipes.js
 
-    script.onload = () => {
-      if (window.instgrm) {
-        window.instgrm.Embeds.process();
-      }
-    };
-  } else {
-    if (window.instgrm) {
-      window.instgrm.Embeds.process();
-    }
-  }
-};
+import React from 'react';
+import "../CSS/Recipes.css"; // Ensure this CSS file contains the necessary styles with the new class names
 
-// Array of recipes with their details and Instagram embed code
-const recipes = [
+// Sample recipe data, replace with actual data and import images as needed
+const recipeData = [
   {
-    title: "Refresh Nirvana🥤⛱️⛅",
-    instagramEmbedCode: instagramEmbedCodes.recipeTitle1,
+    title: "Spaghetti Carbonara",
+    description: "",
+    image: "/path-to-your-image/spaghetti-carbonara.jpg" // Replace with the path to your image
   },
   {
-    title: "Tim Hortins ☕🍵",
-    instagramEmbedCode: instagramEmbedCodes.recipeTitle2,
+    title: "Chicken Tikka Masala",
+    description: "Chunks of grilled chicken in a creamy tomato sauce with spices.",
+    image: "/path-to-your-image/chicken-tikka-masala.jpg" // Replace with the path to your image
   },
-  // ... more recipe objects
+  // ...more recipes
 ];
 
 const Recipes = () => {
-  // Load Instagram embed script when the component mounts
-  useEffect(() => {
-    loadInstagramEmbedScript();
-  }, []);
-
   return (
-    <div className="recipes-gallery">
-      {recipes.map((recipe, index) => (
-        <div key={index} className="recipe-item">
-          {/* Instagram Reel Embed */}
-          <div
-            className="recipe-instagram"
-            dangerouslySetInnerHTML={{ __html: recipe.instagramEmbedCode }}
-          />
-          {/* Recipe Title */}
-          <div className="recipe-info">
-            <h3 className="recipe-name">{recipe.title}</h3>
+    <div className="recipe-gallery">
+      {recipeData.map((recipe, index) => (
+        <div key={index} className="recipe-gallery__card">
+          <img className="recipe-gallery__image" src={recipe.image} alt={recipe.title} />
+          <div className="recipe-gallery__info">
+            <h3 className="recipe-gallery__title">{recipe.title}</h3>
+            <p className="recipe-gallery__description">{recipe.description}</p>
+            {/* Add more details as required */}
           </div>
         </div>
       ))}

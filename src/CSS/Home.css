@@ -14,3 +14,72 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .parallax-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay to ensure text readability */
+    backdrop-filter: blur(5px); /* Optional: apply a blur to the background */
+  }
+  
+  .parallax-content h1 {
+    font-size: 3em;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+  }
+  
+  .parallax-content p {
+    font-size: 1.5em;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  }
+  
+  .parallax {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .parallax::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.6) 75%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+  
+  @keyframes fadeInScaleUp {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Apply the fade-in and scale-up animation to the content inside the parallax */
+  .parallax-content > div {
+    animation: fadeInScaleUp 1.5s ease-out forwards;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .parallax-content h1 {
+      font-size: 2em;
+    }
+    .parallax-content p {
+      font-size: 1em;
+    }
+  }

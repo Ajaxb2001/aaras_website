@@ -1,9 +1,6 @@
 // About.js
 import React from "react";
 import "../CSS/About.css"; // Make sure to create an About.css file in the same directory
-
-
-
 function About() {
   return (
     <div className="about-container">

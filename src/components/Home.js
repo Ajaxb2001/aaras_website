@@ -5,8 +5,9 @@ import sbcheesecake from "../images/sb_cheeze_cake.jpg"; // Adjust the path if n
 import misal from "../images/misal.jpg"; // Adjust the path if necessary
 import cb from "../images/chicken_Biryani.jpg"; // Adjust the path if necessary
 import choleKulche from "../images/chole_kulche.jpg"; // Adjust the path if necessary
-import seekhKabab from "../images/seekh_kabab.jpg"; // Adjust the path if necessary
-
+import seekhKabab from "../images/seekh_kabab.jpg";
+import { Parallax } from "react-parallax";
+import parallaxImage from "../images/parallax-2.jpg";
 import "../CSS/Home.css";
 
 const recipes = [
@@ -50,10 +51,27 @@ const recipes = [
 
 function Home() {
   return (
-    <div className="home-container">
-      {recipes.map((recipe, index) => (
-        <RecipeCard key={index} recipe={recipe} />
-      ))}
+    <div>
+      <Parallax
+        bgImage={parallaxImage} // Use the imported image variable here
+        strength={500}
+        bgClassName="parallax"
+      >
+        <div style={{ height: "450px" }}>
+          <div className="parallax-content">
+            {/* Content inside parallax */}
+            <div>
+              <h1>Welcome to Delicious Recipes</h1>
+              <p>Explore the taste of authentic cuisines</p>
+            </div>
+          </div>
+        </div>
+      </Parallax>
+      <div className="home-container">
+        {recipes.map((recipe, index) => (
+          <RecipeCard key={index} recipe={recipe} />
+        ))}
+      </div>
     </div>
   );
 }
