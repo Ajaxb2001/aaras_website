@@ -51,3 +51,23 @@
   max-height: 500px; /* Increase max-height to show full description on hover */
   white-space: normal; /* Allow the text to wrap to new lines */
 }
+.recipe-gallery__actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.recipe-gallery__button {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.recipe-gallery__button:hover {
+  background-color: #0056b3;
+}

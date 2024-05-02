@@ -4,7 +4,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Recipes from "./components/Recipes";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer"; // Import the Footer component
+import Footer from "./components/Footer";
+import AarasKitchen from "./components/AarasKitchen"; // Import the Footer component
 import logo from "./images/aaras-logo.png"; // Import your logo here
 import "./App.css"; // Ensure you are importing App.css
 
@@ -40,6 +41,11 @@ function App() {
               Contact
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/aaras-kitchen" className="nav-link">
+              AarasKitchen
+            </Link>
+          </li>
         </ul>
       </nav>
 
@@ -48,6 +54,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/aaras-kitchen" element={<AarasKitchen />} />
         <Route path="/" element={<Home />} />
       </Routes>
       <Footer />
