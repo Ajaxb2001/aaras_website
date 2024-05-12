@@ -92,10 +92,16 @@
     flex-basis: auto; /* Allow each section to grow */
     width: 90%; /* Set width for mobile layout */
     text-align: center; /* Center content on smaller screens */
+    margin: 10px 0; /* Adjust margin for vertical stacking */
   }
 
   .map-container {
-    padding-bottom: 100%;
-    border-radius: 50px; /* Adjust aspect ratio for smaller screens */
+    padding-bottom: 100%; /* Adjust aspect ratio for smaller screens */
+    border-radius: 10px; /* Adjust border-radius for consistency */
+  }
+
+  .footer-socials {
+    justify-content: center; /* Ensure social icons are centered */
+    margin-top: 10px; /* Provide some space above the social icons */
   }
 }

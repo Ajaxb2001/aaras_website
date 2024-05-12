@@ -41,7 +41,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #040404; /* Bootstrap primary color for link hover */
+  color: #040404; /* Darker color for link hover, description updated */
   transform: translateY(-5px); /* Move the link up slightly on hover */
 }
 
@@ -49,9 +49,8 @@ body {
 .nav-logo-container {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  top: 50%; /* Position the container's center vertically */
-  transform: translate(-50%, -50%); /* Center the logo horizontally and move it up 50% of its height */
+  top: 50%;
+  transform: translate(-50%, -50%); /* Combine both translations into one declaration */
   z-index: 10; /* Ensure the logo sits above other elements */
 }
 
@@ -71,6 +70,10 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .navbar {
+    padding-top: 10px; /* Adjust top padding for better spacing */
+  }
+
   .nav-list {
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items */
@@ -92,10 +95,12 @@ body {
   .nav-logo-container {
     order: -1; /* Place the logo at the top */
     padding-bottom: 20px; /* Add some space below the logo */
+    position: static; /* Remove absolute positioning for better flow */
+    transform: none; /* Remove transform as it's no longer needed */
   }
 
   .nav-logo-image {
-    height: 40px; /* Adjust logo size */
-    width: 40px; /* Adjust logo size */
+    height: 80px; /* Adjust logo size for mobile */
+    width: 80px; /* Adjust logo size for mobile */
   }
 }
